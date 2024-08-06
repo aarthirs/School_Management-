@@ -10,6 +10,14 @@ import AddTeacher from './components/Teachers/AddTeacher';
 const App = () => {
     const [loggedIn, setLoggedIn] = useState(false);
     const [userType, setUserType] = useState('');
+    const [students, setStudents] = useState([
+        { id: 1, name: 'John Doe', grade: 'Grade 10' },
+        { id: 2, name: 'Jane Smith', grade: 'Grade 11' }
+    ]);
+    const [teachers, setTeachers] = useState([
+        { id: 1, name: 'Mr. Brown', subject: 'Mathematics' },
+        { id: 2, name: 'Ms. Green', subject: 'Science' }
+    ]);
 
     const handleLogin = (type) => {
         setLoggedIn(true);
@@ -19,6 +27,14 @@ const App = () => {
     const handleLogout = () => {
         setLoggedIn(false);
         setUserType('');
+    };
+
+    const addStudent = (student) => {
+        setStudents([...students, student]);
+    };
+
+    const addTeacher = (teacher) => {
+        setTeachers([...teachers, teacher]);
     };
 
     return (
@@ -33,14 +49,14 @@ const App = () => {
                 <>
                     {userType === 'student' && (
                         <>
-                            <StudentList />
-                            <AddStudent />
+                            <StudentList students={students} />
+                            <AddStudent onAddStudent={addStudent} />
                         </>
                     )}
                     {userType === 'teacher' && (
                         <>
-                            <TeacherList />
-                            <AddTeacher />
+                            <TeacherList teachers={teachers} />
+                            <AddTeacher onAddTeacher={addTeacher} />
                         </>
                     )}
                 </>
@@ -50,4 +66,3 @@ const App = () => {
 };
 
 export default App;
-              

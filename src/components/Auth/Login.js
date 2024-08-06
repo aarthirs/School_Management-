@@ -16,7 +16,7 @@ const Login = ({ onLogin }) => {
     };
 
     return (
-        <div>
+        <div className="login-container">
             <h2>Login</h2>
             <input type="text" placeholder="Username" value={username} onChange={(e) => setUsername(e.target.value)} />
             <input type="password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)} />
@@ -26,4 +26,3 @@ const Login = ({ onLogin }) => {
 };
 
 export default Login;
-  

@@ -12,7 +12,7 @@ const Login = ({ onLogin }) => {
         } else if (username === 'teacher' && password === 'password') {
             onLogin('teacher');
         } else {
-            alert('Invalid credentials');
+            alert('Invalid');
         }
     };
 
